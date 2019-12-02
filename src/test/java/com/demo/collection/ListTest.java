@@ -33,9 +33,16 @@ public class ListTest {
 
     @Test
     public void testListAddObj(){
-        stuList.add(new Student(1, "张三", 22));
-        stuList.add(new Student(2, "李四", 23));
-        stuList.add(new Student(3, "王五", 24));
+        stuList.add(new Student(20160001L, "孔明", 20, 1, "土木工程", "武汉大学"));
+        stuList.add(new Student(20160002L, "伯约", 21, 2, "信息安全", "武汉大学"));
+        stuList.add(new Student(20160003L, "玄德", 22, 3, "经济管理", "武汉大学"));
+        stuList.add(new Student(20160004L, "云长", 21, 2, "信息安全", "武汉大学"));
+        stuList.add(new Student(20161001L, "翼德", 21, 2, "机械与自动化", "华中科技大学"));
+        stuList.add(new Student(20161002L, "元直", 23, 4, "土木工程", "华中科技大学"));
+        stuList.add(new Student(20161003L, "奉孝", 23, 4, "计算机科学", "华中科技大学"));
+        stuList.add(new Student(20162001L, "仲谋", 22, 3, "土木工程", "浙江大学"));
+        stuList.add(new Student(20162002L, "鲁肃", 23, 4, "计算机科学", "浙江大学"));
+        stuList.add(new Student(20163001L, "丁奉", 24, 5, "土木工程", "南京大学"));
         for (Student stu : stuList){
             System.out.println(stu);
         }
