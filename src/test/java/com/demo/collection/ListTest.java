@@ -1,7 +1,6 @@
-package com.demo;
+package com.demo.collection;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.demo.pojo.Student;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -100,6 +99,24 @@ public class ListTest {
     }
 
     @Test
+    public void testListRetainAll(){
+        List<String> list2 = new ArrayList<String>();
+        list2.add("We are the family.");
+        list2.add("Hello World!");
+        list.retainAll(list2);
+        System.out.println(list);
+    }
+
+    @Test
+    public void testListContainsAll(){
+        List<String> list2 = new ArrayList<String>();
+        list2.add("We are the family.");
+        list2.add("Hello World!");
+        Boolean contains = list.containsAll(list2);
+        System.out.println(contains);
+    }
+
+    @Test
     public void testListToArray(){
         Object[] arr = list.toArray();
         for (Object obj : arr){
@@ -107,12 +124,4 @@ public class ListTest {
             System.out.println(str);
         }
     }
-}
-
-@Data
-@AllArgsConstructor
-class Student{
-    private Integer id;
-    private String name;
-    private Integer age;
 }
