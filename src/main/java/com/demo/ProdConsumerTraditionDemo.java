@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 题目：一个初始值为0的变量，两个线程对其交替操作，一个加1一个减1，来5轮
  *  1. 线程操作资源类
  *  2. 判断 干活 通知
- *  3. 防止虚假唤醒机制
+ *  3. 防止虚假唤醒机制: 多线程的调度判断必须用while
  */
 class ShareData{
     private int num = 0;
@@ -79,5 +79,24 @@ public class ProdConsumerTraditionDemo {
                 }
             }
         }, "B").start();
+        new Thread(() -> {
+            for(int i = 1; i <= 5; i++){
+                try {
+                    shareData.increment();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "C").start();
+
+        new Thread(() -> {
+            for(int i = 1; i <= 5; i++){
+                try {
+                    shareData.decrement();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "D").start();
     }
 }

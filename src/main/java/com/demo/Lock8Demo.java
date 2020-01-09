@@ -1,4 +1,4 @@
-package com.demo.lock8;
+package com.demo;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +43,7 @@ class Phone01{
     }
 }
 
-public class Lock8Demo01 {
+public class Lock8Demo {
     public static void main(String[] args) throws InterruptedException {
         Phone01 phone = new Phone01();
 
