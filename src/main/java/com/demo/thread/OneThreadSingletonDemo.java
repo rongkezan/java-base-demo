@@ -1,5 +1,8 @@
-package com.demo;
+package com.demo.thread;
 
+/**
+ * 单线程下的单例模式
+ */
 public class OneThreadSingletonDemo {
 
     private static OneThreadSingletonDemo instance = null;
@@ -8,7 +11,7 @@ public class OneThreadSingletonDemo {
         System.out.println(Thread.currentThread().getName() + "\t 构造方法初始化");
     }
 
-    public static OneThreadSingletonDemo getInstance(){
+    public static synchronized OneThreadSingletonDemo getInstance(){
         if(instance == null){
             instance = new OneThreadSingletonDemo();
         }

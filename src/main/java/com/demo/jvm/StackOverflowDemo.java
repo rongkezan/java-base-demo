@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.jvm;
 
 /**
  * 演示StackOverflow错误(不是异常)

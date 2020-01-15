@@ -1,11 +1,13 @@
-package com.demo;
+package com.demo.juc;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-
+/**
+ * 集合线程非安全
+ */
 public class CollectionNotSafeDemo {
     public static void main(String[] args) {
         Map<String, String> map = new ConcurrentHashMap<>();
@@ -17,20 +19,20 @@ public class CollectionNotSafeDemo {
         }
     }
 
+    /**
+     * 1. 故障现象
+     *      java.util.ConcurrentModificationException
+     *
+     * 2. 导致原因
+     *      并发争抢修改导致，参考花名册签名情况。
+     *      一个人正在写，另一个人过来抢夺，导致数据不一致异常 -- 并发修改异常。
+     *
+     * 3. 解决方案
+     *      3.1 new Vector<>()
+     *      3.2 Collections.synchronizedList(new ArrayList<>())
+     *      3.3 new CopyOnWriteArrayList<>()
+     */
     public static void listNotSafe(){
-        /**
-         * 1. 故障现象
-         *      java.util.ConcurrentModificationException
-         *
-         * 2. 导致原因
-         *      并发争抢修改导致，参考花名册签名情况。
-         *      一个人正在写，另一个人过来抢夺，导致数据不一致异常 -- 并发修改异常。
-         *
-         * 3. 解决方案
-         *      3.1 new Vector<>()
-         *      3.2 Collections.synchronizedList(new ArrayList<>())
-         *      3.3 new CopyOnWriteArrayList<>()
-         */
         List<String> list = new CopyOnWriteArrayList<>();
         for(int i = 0; i < 30; i++){
             new Thread(() -> {
@@ -40,11 +42,11 @@ public class CollectionNotSafeDemo {
         }
     }
 
+    /**
+     * CopyOnWriteArraySet<>() 底层还是 CopyOnWriteArrayList<>()
+     * HashSet 底层是 HashMap, add方法加的是Map的key，值是固定的(Object)
+     */
     public static void setNotSafe(){
-        /**
-         * CopyOnWriteArraySet<>() 底层还是 CopyOnWriteArrayList<>()
-         * HashSet 底层是 HashMap, add方法加的是Map的key，值是固定的(Object)
-         */
         Set<String> set = new CopyOnWriteArraySet<>();
         for(int i = 0; i < 30; i++){
             new Thread(() -> {

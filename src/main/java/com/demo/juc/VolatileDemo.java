@@ -1,31 +1,15 @@
-package com.demo;
+package com.demo.juc;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class MyData{
-    volatile int num = 0;
 
-    public void change(){
-        this.num = 60;
-    }
-
-    public void addPlus(){
-        num ++;
-    }
-
-    AtomicInteger atomicInteger = new AtomicInteger();
-
-    public synchronized void addAtomic(){
-        atomicInteger.getAndIncrement();
-    }
-}
 
 /**
  * 1.验证volatile可见性
- *  假如 int num = 0; num 变量之前不添加volatile关键字，没有可见性
+ *      假如 int num = 0; num 变量之前不添加volatile关键字，没有可见性
  * 2.验证volatile不保证原子性
- *  原子性：不可分割，完整性，即某个线程在做某个具体业务时，中间不可以被加塞或分割。要么同时成功，要么同时失败。
+ *      原子性：不可分割，完整性，即某个线程在做某个具体业务时，中间不可以被加塞或分割。要么同时成功，要么同时失败。
  */
 public class VolatileDemo {
     public static void main(String[] args) {
@@ -47,7 +31,7 @@ public class VolatileDemo {
         System.out.println(Thread.currentThread().getName() + "\t AtomicInteger, final number value:" + myData.atomicInteger);
     }
 
-    public static void visiable(){
+    public static void visible(){
         MyData myData = new MyData();
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t come in");
@@ -65,5 +49,23 @@ public class VolatileDemo {
         }
 
         System.out.println(Thread.currentThread().getName() + "\t mission is over, main get number value:" + myData.num);
+    }
+
+    private static class MyData{
+        volatile int num = 0;
+
+        public void change(){
+            this.num = 60;
+        }
+
+        public void addPlus(){
+            num ++;
+        }
+
+        AtomicInteger atomicInteger = new AtomicInteger();
+
+        public synchronized void addAtomic(){
+            atomicInteger.getAndIncrement();
+        }
     }
 }

@@ -1,11 +1,15 @@
-package com.demo;
+package com.demo.juc;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
- * ABA问题的解决
+ * ABA问题:
+ *  使用CAS进行比较和交换时，只关注结果，不关注过程
+ *  所以当线程1将 A -> B -> A 时，线程2进行CAS时则认为A没有被修改，但其实是被修改过的
+ * ABA问题的解决:
+ *  引入版本号，每次更新使版本号加一，进行CAS比对时同时比对最终值和版本号
  */
 public class ABADemo {
 

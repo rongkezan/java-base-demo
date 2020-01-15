@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.juc;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,20 +28,7 @@ import java.util.concurrent.TimeUnit;
  * static synchronized is global lock, it locked the Class object. for example, two object have a one lock.
  * static synchronized 是一个全局锁，锁的是当前类的Class对象，例：2个由同一个类new出来的对象共享同一把锁
  */
-class Phone01{
-    public static synchronized void sendEmail() throws Exception{
-        TimeUnit.SECONDS.sleep(3);
-        System.out.println("Send Email");
-    }
 
-    public synchronized void sendMessage() throws Exception{
-        System.out.println("Send Message");
-    }
-
-    public void sayHello() throws Exception{
-        System.out.println("Say Hello");
-    }
-}
 
 public class Lock8Demo {
     public static void main(String[] args) throws InterruptedException {
@@ -64,5 +51,20 @@ public class Lock8Demo {
                 e.printStackTrace();
             }
         }, "B").start();
+    }
+
+    private static class Phone01{
+        public static synchronized void sendEmail() throws Exception{
+            TimeUnit.SECONDS.sleep(3);
+            System.out.println("Send Email");
+        }
+
+        public synchronized void sendMessage() throws Exception{
+            System.out.println("Send Message");
+        }
+
+        public void sayHello() throws Exception{
+            System.out.println("Say Hello");
+        }
     }
 }

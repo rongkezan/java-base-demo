@@ -1,10 +1,14 @@
-package com.demo;
+package com.demo.juc;
 
-import com.demo.enums.CountryEnum;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.concurrent.CountDownLatch;
 
-
+/**
+ * 被减到指定值后才放行，否则等待
+ * 默认需要指定一个
+ */
 public class CountDownLatchDemo {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(6);
@@ -31,5 +35,32 @@ public class CountDownLatchDemo {
         }
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName() + "\t ********班长最后关门走人");
+    }
+
+    /**
+     * 枚举类的使用
+     */
+    @Getter
+    @AllArgsConstructor
+    private enum CountryEnum {
+        ONE(1, "齐"),
+        TWO(2, "楚"),
+        THREE(3, "燕"),
+        OUR(4, "赵"),
+        FIVE(5, "魏"),
+        SIX(6, "韩");
+
+        private Integer retCode;
+        private String retMessage;
+
+        public static CountryEnum forEachCountryEnum(int index){
+            CountryEnum[] myArray = CountryEnum.values();
+            for (CountryEnum element : myArray) {
+                if(index == element.getRetCode()){
+                    return element;
+                }
+            }
+            return null;
+        }
     }
 }

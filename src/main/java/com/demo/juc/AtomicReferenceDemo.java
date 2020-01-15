@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.juc;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,14 +6,9 @@ import lombok.ToString;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-@Getter
-@ToString
-@AllArgsConstructor
-class User{
-    String username;
-    int age;
-}
-
+/**
+ * 原子引用
+ */
 public class AtomicReferenceDemo {
     public static void main(String[] args) {
         User z3 = new User("z3", 22);
@@ -23,5 +18,13 @@ public class AtomicReferenceDemo {
         atomicReference.set(z3);
         System.out.println(atomicReference.compareAndSet(z3, l4) + "\t" + atomicReference.get().toString());
         System.out.println(atomicReference.compareAndSet(z3, l4) + "\t" + atomicReference.get().toString());
+    }
+
+    @Getter
+    @ToString
+    @AllArgsConstructor
+    private static class User{
+        String username;
+        int age;
     }
 }

@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.jvm;
 
 public class MyObject {
     public static void main(String[] args) {
