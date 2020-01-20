@@ -54,6 +54,5 @@ public class ABADemo {
                     + result + "\t当前最新实际版本号：" + atomicStampedReference.getStamp());
             System.out.println("当前实际最新值：" + atomicStampedReference.getReference());
         }, "t4").start();
-
     }
 }
