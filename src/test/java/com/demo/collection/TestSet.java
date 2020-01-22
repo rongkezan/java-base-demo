@@ -1,13 +1,13 @@
 package com.demo.collection;
 
-import com.demo.pojo.Student;
+import com.demo.collection.entity.Student;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class SetTest {
+public class TestSet {
 
     private Set<String> set = new HashSet<String>();
 

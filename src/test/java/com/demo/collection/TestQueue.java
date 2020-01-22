@@ -12,7 +12,7 @@ import java.util.Queue;
  * 移除元素用 poll()
  * 查询头元素用 peek()
  */
-public class QueueTest {
+public class TestQueue {
     private Queue<String> queue = new LinkedList<>();
 
     /**

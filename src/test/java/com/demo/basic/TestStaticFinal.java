@@ -2,7 +2,7 @@ package com.demo.basic;
 
 import org.junit.Test;
 
-public class StaticFinalTest {
+public class TestStaticFinal {
     /**
      * 对比static和final的区别
      * - static：只保存一份工作副本
@@ -15,7 +15,7 @@ public class StaticFinalTest {
      * 0.7240744274681449
      */
     @Test
-    public void testDemo(){
+    public void test(){
         MyRandom random1 = new MyRandom();
         MyRandom random2 = new MyRandom();
 
@@ -25,9 +25,11 @@ public class StaticFinalTest {
         System.out.println(random1.b);
         System.out.println(random2.b);
     }
+
+    static class MyRandom{
+        protected static double a = Math.random();
+        protected final double b = Math.random();
+    }
 }
 
-class MyRandom{
-    protected static double a = Math.random();
-    protected final double b = Math.random();
-}
+

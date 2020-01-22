@@ -1,6 +1,6 @@
 package com.demo.collection;
 
-import com.demo.pojo.Student;
+import com.demo.collection.entity.Student;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ListTest {
+public class TestList {
 
     private List<String> list = new ArrayList<String>();
 

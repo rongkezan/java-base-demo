@@ -1,4 +1,4 @@
-package com.demo.pojo;
+package com.demo.collection.entity;
 
 import java.util.Objects;
 

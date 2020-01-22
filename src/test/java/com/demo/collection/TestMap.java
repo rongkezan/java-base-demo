@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class MapTest {
+public class TestMap {
 
     private Map<Integer, String> map = new HashMap<>();
 
