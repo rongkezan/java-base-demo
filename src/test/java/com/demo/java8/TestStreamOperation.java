@@ -1,6 +1,5 @@
 package com.demo.java8;
 
-import com.demo.collection.CollectionTest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.junit.Before;
@@ -16,7 +15,7 @@ import java.util.stream.Stream;
  */
 public class TestStreamOperation {
 
-    private List<CollectionTest.Employee> emps;
+    private List<Employee> emps;
 
     @Data
     @AllArgsConstructor
@@ -29,12 +28,12 @@ public class TestStreamOperation {
     @Before
     public void before(){
         emps = Arrays.asList(
-                new CollectionTest.Employee("张三", 19, 2200.00),
-                new CollectionTest.Employee("李四", 28, 2600.00),
-                new CollectionTest.Employee("王五", 22, 2100.00),
-                new CollectionTest.Employee("赵六", 58, 5500.00),
-                new CollectionTest.Employee("阿七", 17, 100.00),
-                new CollectionTest.Employee("阿七", 17, 100.00)
+                new Employee("张三", 19, 2200.00),
+                new Employee("李四", 28, 2600.00),
+                new Employee("王五", 22, 2100.00),
+                new Employee("赵六", 58, 5500.00),
+                new Employee("阿七", 17, 100.00),
+                new Employee("阿七", 17, 100.00)
         );
     }
 
@@ -47,7 +46,7 @@ public class TestStreamOperation {
      */
     @Test
     public void test1(){
-        Stream<CollectionTest.Employee> stream = emps.stream().filter(e -> e.getAge() > 22);
+        Stream<Employee> stream = emps.stream().filter(e -> e.getAge() > 22);
         stream.forEach(System.out::println);
     }
 
@@ -76,7 +75,7 @@ public class TestStreamOperation {
         List<String> list = Arrays.asList("aaa", "bbb", "ccc", "ddd", "eee");
         list.stream().map(String::toUpperCase).forEach(System.out::println);
         System.out.println("-------------------");
-        emps.stream().map(CollectionTest.Employee::getName).forEach(System.out::println);
+        emps.stream().map(Employee::getName).forEach(System.out::println);
 
     }
 
