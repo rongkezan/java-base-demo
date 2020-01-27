@@ -6,8 +6,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * JMM 可见性: 通知机制
  * 验证volatile可见性
+ * 假如 int num = 0; num 变量之前不添加volatile关键字，没有可见性
  */
-public class VisibleDemo {
+public class VolatileVisibleDemo {
     private static class MyData{
         // 若是不加 volatile，那么main线程就接收不到通知
         volatile int num = 0;

@@ -1,4 +1,4 @@
-package com.demo.juc;
+package com.demo.juc.blockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
@@ -36,11 +36,11 @@ public class SynchronousQueueDemo {
 
         new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(1);
                 System.out.println(Thread.currentThread().getName() + "\t" + blockingQueue.take());
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(1);
                 System.out.println(Thread.currentThread().getName() + "\t" + blockingQueue.take());
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(1);
                 System.out.println(Thread.currentThread().getName() + "\t" + blockingQueue.take());
             } catch (InterruptedException e) {
                 e.printStackTrace();
