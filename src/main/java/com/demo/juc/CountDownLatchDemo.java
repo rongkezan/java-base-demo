@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 被减到指定值后才放行，否则等待
+ * 被减到零才放行，否则等待
  * 默认需要指定一个
  */
 public class CountDownLatchDemo {

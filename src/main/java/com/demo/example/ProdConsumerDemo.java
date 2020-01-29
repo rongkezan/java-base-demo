@@ -33,7 +33,7 @@ class MyResource{
             }
             TimeUnit.SECONDS.sleep(1);
         }
-        System.out.println(Thread.currentThread().getName() + "\tflag = false了，生产动作结束");
+        System.out.println(Thread.currentThread().getName() + "\t生产动作结束");
     }
 
     public void consume() throws Exception{
@@ -49,10 +49,11 @@ class MyResource{
         }
     }
 
-    public void stop() throws Exception{
+    public void stop(){
         this.flag = false;
     }
 }
+
 public class ProdConsumerDemo {
     public static void main(String[] args) throws Exception {
         MyResource myResource = new MyResource(new SynchronousQueue<>());
