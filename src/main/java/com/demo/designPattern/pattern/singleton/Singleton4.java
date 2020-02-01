@@ -11,7 +11,7 @@ package com.demo.designPattern.pattern.singleton;
  */
 public class Singleton4 {
 
-    static Singleton4 instance;
+    private static Singleton4 instance;
 
     private Singleton4(){
 
