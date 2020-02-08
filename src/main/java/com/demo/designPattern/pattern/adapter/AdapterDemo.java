@@ -1,5 +1,7 @@
 package com.demo.designPattern.pattern.adapter;
 
+import java.util.UUID;
+
 public class AdapterDemo {
     static public class Voltage220 {
         public int output220(){

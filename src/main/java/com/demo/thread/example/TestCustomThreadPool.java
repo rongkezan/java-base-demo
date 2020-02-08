@@ -8,8 +8,10 @@ import java.util.concurrent.*;
 public class TestCustomThreadPool {
     public static void main(String[] args) {
         ExecutorService pool = new ThreadPoolExecutor(
-                2, 5, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(3),
-                Executors.defaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
+                2, 5, 1L, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>(3),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.CallerRunsPolicy());
         try {
             for (int i = 0; i < 10; i++) {
                 final int fi = i;

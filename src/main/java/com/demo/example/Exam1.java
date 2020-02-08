@@ -10,10 +10,10 @@ import java.util.Arrays;
  * - 传递地址值
  * - 特殊的类型: String、包装类等对象不可变性
  */
-class MyData{
-    int a = 10;
-}
 public class Exam1 {
+    static class MyData{
+        int a = 10;
+    }
     public static void change(int j, String s, Integer n, int[] a, MyData m){
         j += 1;
         s += "world";
