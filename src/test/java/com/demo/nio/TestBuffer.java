@@ -2,7 +2,11 @@ package com.demo.nio;
 
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 
 /**
  * 1. 缓冲区(Buffer): 在Java Nio中负责数据的存取，缓冲区就是数组，用于存储不同类型的数据
@@ -108,5 +112,43 @@ public class TestBuffer {
         ByteBuffer buf = ByteBuffer.allocateDirect(1024);
         // 判断是否是直接缓冲区
         System.out.println(buf.isDirect());
+    }
+
+    @Test
+    public void testCopyFile(){
+        String srcPath = "src/main/resources/file/1.txt";
+        String dstPath = "src/main/resources/file/2.txt";
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        FileChannel fisChannel = null;
+        FileChannel fosChannel = null;
+        ByteBuffer buf = ByteBuffer.allocate(1024);
+
+        try {
+            fis = new FileInputStream(srcPath);
+            fos = new FileOutputStream(dstPath);
+            fisChannel = fis.getChannel();
+            fosChannel = fos.getChannel();
+            while (fisChannel.read(buf) != -1){
+                buf.flip();
+                fosChannel.write(buf);
+                buf.clear();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null){
+                try { fis.close(); } catch (IOException e) { e.printStackTrace(); }
+            }
+            if(fos != null){
+                try { fos.close(); } catch (IOException e) { e.printStackTrace(); }
+            }
+            if (fisChannel != null){
+                try { fisChannel.close(); } catch (IOException e) { e.printStackTrace(); }
+            }
+            if (fosChannel != null){
+                try { fosChannel.close(); } catch (IOException e) { e.printStackTrace(); }
+            }
+        }
     }
 }
