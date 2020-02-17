@@ -1,11 +1,11 @@
-package com.demo.thread.example;
+package com.demo.thread.create;
 
 import java.util.concurrent.*;
 
 /**
  * 自定义一个线程池
  */
-public class TestCustomThreadPool {
+public class CustomThreadPool {
     public static void main(String[] args) {
         ExecutorService pool = new ThreadPoolExecutor(
                 2, 5, 1L, TimeUnit.SECONDS,

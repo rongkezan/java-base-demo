@@ -1,9 +1,9 @@
-package com.demo.thread.example;
+package com.demo.thread.create;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class TestThreadPool {
+public class CachedThreadPool {
     public static void main(String[] args) {
 //        ExecutorService pool = Executors.newFixedThreadPool(5);   //一池5个线程，执行长期任务，性能好很多
 //        ExecutorService pool = Executors.newSingleThreadExecutor();   //一池1个线程，一个任务一个任务执行的场景

@@ -1,4 +1,4 @@
-package com.demo.thread;
+package com.demo.thread.create;
 
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -14,7 +14,6 @@ import java.util.concurrent.Executors;
  *
  * 缺点:
  * - 任务出现异常无法感知
- * -
  */
 public class TestCompletableFuture {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
