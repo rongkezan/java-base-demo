@@ -2,12 +2,15 @@ package com.demo.designPattern.pattern.adapter;
 
 import java.util.UUID;
 
+/**
+ * 类适配器模式
+ */
 public class AdapterDemo {
     static public class Voltage220 {
+        private int srcVoltage = 220;
         public int output220(){
-            int src = 220;
-            System.out.println("电压 = " + src);
-            return src;
+            System.out.println("电压 = " + srcVoltage);
+            return srcVoltage;
         }
     }
 
@@ -25,9 +28,7 @@ public class AdapterDemo {
 
         @Override
         public int output5() {
-            int src = voltage220.output220();
-            int dst = src / 44;
-            return dst;
+            return voltage220.output220() / 44;
         }
     }
 
@@ -42,7 +43,6 @@ public class AdapterDemo {
     }
 
     public static void main(String[] args) {
-        System.out.println("--- 类适配器模式 ---");
         Phone phone = new Phone();
         phone.charging(new VoltageAdapter());
     }
