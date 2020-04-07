@@ -2,6 +2,7 @@ package com.demo.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.*;
@@ -15,18 +16,24 @@ import java.util.Map;
  * @author <a href="rongkz@zjport.gov.cn">KeithRong</a>
  * @date 2020/4/2 10:59
  */
+@Slf4j
 public class TestJackson {
 
     private final static ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    public void testConvert() throws Exception {
+    public void testConvert() {
         String jsonString = readFile();
-        Map<String, Object> map = JacksonUtils.jsonToMap(jsonString);
-        Map<String, List<Map<String, String>>> payload = (Map<String, List<Map<String, String>>>) map.get("payload");
-        List<Map<String, String>> list = payload.get("aimgs");
-        for (Map<String, String> map2 : list) {
-            System.out.println(map2.get("gdsSeqno"));
+        Map<String, Object> map = null;
+        try {
+            map = JacksonUtils.jsonToMap(jsonString);
+            Map<String, List<Map<String, String>>> payload = (Map<String, List<Map<String, String>>>) map.get("payload");
+            List<Map<String, String>> list = payload.get("aimgs");
+            for (Map<String, String> map2 : list) {
+                System.out.println(map2.get("gdsSeqno"));
+            }
+        } catch (Exception e) {
+            log.error("json解析异常", e);
         }
     }
 
