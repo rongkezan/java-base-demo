@@ -1,7 +1,6 @@
 package com.demo.juc;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * JMM 可见性: 通知机制

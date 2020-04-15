@@ -3,7 +3,6 @@ package com.demo.basic.reflection.test;
 import com.demo.basic.reflection.entity.Person;
 import org.junit.Test;
 
-import java.awt.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

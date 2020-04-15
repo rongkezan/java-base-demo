@@ -1,7 +1,5 @@
 package com.demo.designPattern.pattern.adapter;
 
-import java.util.UUID;
-
 /**
  * 类适配器模式
  */

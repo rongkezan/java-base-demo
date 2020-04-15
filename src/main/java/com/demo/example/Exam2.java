@@ -1,7 +1,5 @@
 package com.demo.example;
 
-import java.util.concurrent.Executors;
-
 public class Exam2 {
     static int s;
     int i;
