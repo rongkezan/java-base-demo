@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,11 +26,7 @@ public class TestJackson {
         Map<String, Object> map = null;
         try {
             map = JacksonUtils.jsonToMap(jsonString);
-            Map<String, List<Map<String, String>>> payload = (Map<String, List<Map<String, String>>>) map.get("payload");
-            List<Map<String, String>> list = payload.get("aimgs");
-            for (Map<String, String> map2 : list) {
-                System.out.println(map2.get("gdsSeqno"));
-            }
+            System.out.println(map);
         } catch (Exception e) {
             log.error("json解析异常", e);
         }
@@ -55,7 +52,7 @@ public class TestJackson {
 
     private String readFile(){
         StringBuilder sb = new StringBuilder();
-        File srcFile = new File("src/test/java/com/demo/json/json.txt");
+        File srcFile = new File("src/test/java/com/demo/test/json/json.txt");
         BufferedReader br = null;
         try {
             FileReader fr = new FileReader(srcFile);
