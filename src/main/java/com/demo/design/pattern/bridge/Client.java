@@ -1,5 +1,9 @@
 package com.demo.design.pattern.bridge;
 
+/**
+ * 使用聚合的方式将两个类进行关联，解决类爆炸的问题
+ * 举例: 小米手机 + 滑盖 = 小米滑盖手机
+ */
 interface Brand {
     void open();
 
