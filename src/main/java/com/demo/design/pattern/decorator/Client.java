@@ -1,31 +1,18 @@
 package com.demo.design.pattern.decorator;
 
+import lombok.Data;
+
 /**
  * 星巴克点单: 一份咖啡 + 多份配料
  * 装饰着模式下的订单: 1杯Long Black + 2份巧克力 + 1份牛奶
  */
+@Data
 abstract class Goods {
     private String description;
 
     private float price = 0.0f;
 
     public abstract float cost();   // 价格
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
 }
 
 class Coffee extends Goods {

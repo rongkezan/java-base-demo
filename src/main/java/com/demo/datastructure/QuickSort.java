@@ -7,7 +7,7 @@ package com.demo.datastructure;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = { 2, 5, 7, 9, 1, 3, 8, 4, 6 };
+        int[] arr = { 2, 5, 7, 9, 1, 3, 8, 4, 6, 0 };
         quickSort(arr, 0, arr.length - 1);
         for (int i : arr) {
             System.out.print(i + "\t");
@@ -21,13 +21,9 @@ public class QuickSort {
         temp = arr[low];    //基准位
         while (i < j) {
             //先看右边，依次往左递减
-            while (temp <= arr[j] && i < j) {
-                j--;
-            }
+            while (temp <= arr[j] && i < j) j--;
             //再看左边，依次往右递增
-            while (temp >= arr[i] && i < j) {
-                i++;
-            }
+            while (temp >= arr[i] && i < j) i++;
             //如果满足条件则交换
             if (i < j) {
                 t = arr[j];

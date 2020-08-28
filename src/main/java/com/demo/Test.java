@@ -1,43 +1,18 @@
 package com.demo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import java.io.File;
 
-import java.util.*;
-
-@Slf4j
 public class Test {
-
-    @Data
-    @AllArgsConstructor
-    static class User{
-        private String username;
-
-        private String password;
-
-        @Override
-        public boolean equals(Object object) {
-            if (this == object) return true;
-            if (object == null || getClass() != object.getClass()) return false;
-            User user = (User) object;
-            return Objects.equals(username, user.username) &&
-                    Objects.equals(password, user.password);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(username, password);
-        }
-    }
-
     public static void main(String[] args) {
-        User test1 = new User("test1", "123");
-        User test2 = new User("test1", "123");
-        System.out.println(test1.equals(test2));
-        HashSet<User> users = new HashSet<>();
-        users.add(test1);
-        users.add(test2);
-        System.out.println(users);
+        StringBuilder sb = new StringBuilder();
+        String path = "E:\\Zjport\\报文\\原始资料\\8.18海陆空易豹编号264份（8.13-8.14）\\8.16联邦空运非规范36份";
+        File file = new File(path);
+        File[] fs = file.listFiles();
+        for (File f : fs) {
+            int i = f.getName().indexOf("20200");
+            String name = f.getName().substring(i, i + 13);
+            System.out.print(name + ",");
+        }
+        System.out.println(sb.toString());
     }
 }
