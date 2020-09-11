@@ -5,7 +5,7 @@ import java.io.File;
 public class Test {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-        String path = "E:\\Zjport\\报文\\原始资料\\8.18海陆空易豹编号264份（8.13-8.14）\\8.16联邦空运非规范36份";
+        String path = "E:\\Zjport\\报文\\原始资料\\20200902联邦易豹编号";
         File file = new File(path);
         File[] fs = file.listFiles();
         for (File f : fs) {

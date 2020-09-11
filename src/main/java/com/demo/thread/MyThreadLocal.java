@@ -2,6 +2,7 @@ package com.demo.thread;
 
 /**
  * ThreadLocal用法
+ * 贯穿整个线程的一个Map
  */
 public class MyThreadLocal {
     static ThreadLocal<String> threadLocal = new ThreadLocal<>();
@@ -11,20 +12,12 @@ public class MyThreadLocal {
         Thread[] runs = new Thread[3];
         // 把i作为线程的编号，赋给线程，并启动
         for (int i = 0; i < runs.length; i++) {
-            runs[i] = new Thread(new TestThread(i));
+            final int id = i;
+            runs[i] = new Thread(() -> {
+                threadLocal.set("线程-" + id);
+                System.out.println(Thread.currentThread().getName() + "编号:\t" + threadLocal.get());
+            });
             runs[i].start();
-        }
-    }
-
-    public static class TestThread implements Runnable{
-        int id;
-        public TestThread(int id){
-            this.id = id;
-        }
-        @Override
-        public void run() {
-            threadLocal.set("线程-" + id);
-            System.out.println(Thread.currentThread().getName() + "编号:\t" + threadLocal.get());
         }
     }
 

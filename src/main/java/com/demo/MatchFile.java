@@ -14,7 +14,7 @@ public class MatchFile {
 
     private static final String MATCH_DIR_PATH = "E:\\Zjport\\报文\\msg\\match\\";
 
-    private static final String SUB_PATH = "陆运无草单8份\\";
+    private static final String SUB_PATH = "20200902联邦易豹编号\\";
 
     public static void main(String[] args) {
         File jsonDir = new File(JSON_DIR_PATH);
