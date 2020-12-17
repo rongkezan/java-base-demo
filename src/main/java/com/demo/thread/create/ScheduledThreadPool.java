@@ -13,7 +13,7 @@ public class ScheduledThreadPool {
             int num = new Random().nextInt(100);
             System.out.println(Thread.currentThread().getName() + "\t" + num);
             return num;
-        }, 1, TimeUnit.SECONDS);
+        }, 100, TimeUnit.MILLISECONDS);
 
         System.out.println(result.get());
         pool.shutdown();

@@ -32,10 +32,13 @@ public class ThreadCreate3 {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        MyThread myThread = new MyThread();
-        FutureTask<Integer> futureTask = new FutureTask<>(myThread);
+        MyThread t = new MyThread();
+        FutureTask<Integer> futureTask = new FutureTask<>(t);
         new Thread(futureTask).start();
         Integer sum = futureTask.get();
         System.out.println("总和为:" + sum);
+        new Thread(() -> {
+
+        }).start();
     }
 }
