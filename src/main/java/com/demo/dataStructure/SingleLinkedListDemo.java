@@ -1,11 +1,9 @@
 package com.demo.dataStructure;
 
-import org.w3c.dom.Node;
-
 /**
  * 单链表
  */
-public class LinkedListDemo {
+public class SingleLinkedListDemo {
 
     static class Node<E> {
         E element;
