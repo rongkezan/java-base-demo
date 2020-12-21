@@ -1,4 +1,4 @@
-package com.demo.datastructure;
+package com.demo.dataStructure;
 
 /**
  * 冒泡排序

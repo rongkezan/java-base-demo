@@ -1,4 +1,4 @@
-package com.demo.datastructure.graph;
+package com.demo.dataStructure.graph;
 
 /**
  * @author keith

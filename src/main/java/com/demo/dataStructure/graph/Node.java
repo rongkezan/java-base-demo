@@ -1,4 +1,4 @@
-package com.demo.datastructure.graph;
+package com.demo.dataStructure.graph;
 
 import java.util.ArrayList;
 import java.util.List;
