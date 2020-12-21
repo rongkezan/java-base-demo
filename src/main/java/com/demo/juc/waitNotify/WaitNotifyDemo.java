@@ -1,11 +1,13 @@
-package com.demo.juc;
-
-import java.util.concurrent.TimeUnit;
+package com.demo.juc.waitNotify;
 
 /**
+ * Object wait notify
+ * 1. 必须在同步代码块中才会生效
+ * 2. 先notify后wait后线程会一直等待
+ *
  * @author keith
  */
-public class LockSupportDemo {
+public class WaitNotifyDemo {
     static Object objectLock = new Object();
 
     public static void main(String[] args) {
@@ -20,8 +22,7 @@ public class LockSupportDemo {
         new Thread(() -> {
             synchronized (objectLock){
                 objectLock.notify();
-                try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
-                System.out.println(Thread.currentThread().getName() + "\t" + "wake up");
+                System.out.println(Thread.currentThread().getName() + "\t" + "notify");
             }
         }, "B").start();
     }
