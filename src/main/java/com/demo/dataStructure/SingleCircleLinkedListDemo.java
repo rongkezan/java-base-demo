@@ -55,18 +55,13 @@ public class SingleCircleLinkedListDemo {
 
         /**
          * 计算出圈顺序
-         * @param start 开始的数字
          * @param count 数几个数字
          */
-        public void out(int start, int count){
-            if (first == null || start < 1 || start > size)
-                throw new UnsupportedOperationException("Illegal Parameter");
+        public void out(int count){
+            if (first == null)
+                throw new UnsupportedOperationException("List is empty");
             Node curr = first;
             while (curr.next != first) {
-                curr = curr.next;
-            }
-            for (int i = 0; i < start - 1; i++){
-                first = first.next;
                 curr = curr.next;
             }
             while (curr != first) {
@@ -88,6 +83,6 @@ public class SingleCircleLinkedListDemo {
         list.init(5);
         list.showAll();
         System.out.println();
-        list.out(1, 2);
+        list.out( 2);
     }
 }
