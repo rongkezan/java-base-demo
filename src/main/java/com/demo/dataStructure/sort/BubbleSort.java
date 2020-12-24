@@ -1,4 +1,4 @@
-package com.demo.dataStructure;
+package com.demo.dataStructure.sort;
 
 /**
  * 冒泡排序

@@ -1,11 +1,9 @@
-package com.demo.basic;
-
-import lombok.Data;
+package com.demo.basic.classLoad;
 
 /**
  * 1. 先有模板，静态先行，加载一次
  * 2. 加载顺序: 静态 > 构造块 > 构造方法
- * 
+ *
  * 构造代码块
  *  1. 构造代码块的作用是给对象进行初始化。
  *  2. 对象一建立就运行构造代码块了，而且优先于构造函数执行。
@@ -18,29 +16,12 @@ import lombok.Data;
  * 2. 静态代码块其实就是给类初始化的，而构造代码块是给对象初始化的。
  * 3. 静态代码块中的变量是局部变量，与普通函数中的局部变量性质没有区别。
  * 4. 一个类中可以有多个静态代码块
+ *
+ * @author keith
  */
-public class CodeBlock {
+public class Client {
     public static void main(String[] args) {
-        MyClass myClass = new MyClass();
-        System.out.println("num = " + MyClass.num);
-        System.out.println("count = " + myClass.getCount());
-    }
-
-    @Data
-    private static class MyClass{
-        private static int num;
-        private int count;
-        static{
-            num = 20;
-            System.out.println("执行静态代码块1");
-        }
-        {
-            this.count = 10;
-            System.out.println("执行构造代码块1");
-        }
-
-        public MyClass(){
-            System.out.println("执行构造函数1");
-        }
+        Child c1 = new Child();
+        System.out.println();
     }
 }

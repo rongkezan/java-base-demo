@@ -1,7 +1,5 @@
 package com.demo.dataStructure.stack;
 
-import java.util.Stack;
-
 /**
  * 使用栈实现计算器
  * 数栈：numStack

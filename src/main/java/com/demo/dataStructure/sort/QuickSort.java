@@ -1,4 +1,4 @@
-package com.demo.dataStructure;
+package com.demo.dataStructure.sort;
 
 /**
  * 快速排序: 给基准数据找其正确索引位置

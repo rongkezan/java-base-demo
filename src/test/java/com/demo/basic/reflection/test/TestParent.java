@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 /**
  * 获取运行时类的父类
  */
-public class TestFather {
+public class TestParent {
 
     // 获取运行时类的父类
     @Test

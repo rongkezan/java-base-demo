@@ -21,7 +21,7 @@ public class VolatileVisibleDemo {
         MyData myData = new MyData();
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t come in");
-            try { TimeUnit.SECONDS.sleep(2); } catch (InterruptedException e) { e.printStackTrace(); }
+            try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
             myData.change();
             System.out.println(Thread.currentThread().getName() + "\t updated number value:" + myData.num);
         }, "A").start();
