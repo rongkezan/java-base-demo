@@ -96,10 +96,11 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
-        String expression = "3+2*6-2";
+        String expression = "32+2*6-2";
         Stack numStack = new Stack(10);
         Stack operStack = new Stack(10);
         int index = 0, num1 = 0, num2 = 0, oper = 0, res = 0;
+        String keepNum = "";    // 用于拼接多位数
         char ch = ' '; // 将每次扫描得到的char保存到tmp
         do {
             ch = expression.substring(index, index + 1).charAt(0);
@@ -114,7 +115,13 @@ public class Calculator {
                 }
                 operStack.push(ch);
             } else {
-                numStack.push(ch - 48);
+                keepNum += ch;
+                if (index == expression.length() - 1){
+                    numStack.push(Integer.parseInt(keepNum));
+                } else if (operStack.isOperation(expression.substring(index + 1, index + 2).charAt(0))){
+                    numStack.push(Integer.parseInt(keepNum));
+                    keepNum = "";
+                }
             }
             index++;
         } while (index != expression.length());
