@@ -1,4 +1,4 @@
-package com.demo.juc;
+package com.demo.juc.lock;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +16,7 @@ public class CountDownLatchDemo {
             new Thread(() -> {
                 System.out.println(Thread.currentThread().getName() + "\t 国被灭");
                 countDownLatch.countDown();
-            }, CountryEnum.forEachCountryEnum(i).getRetMessage()).start();
+            }, String.valueOf(i)).start();
         }
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName() + "\t ********秦帝国，一统华夏");

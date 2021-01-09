@@ -1,4 +1,4 @@
-package com.demo.juc;
+package com.demo.juc.lock;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
