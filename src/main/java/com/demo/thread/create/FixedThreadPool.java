@@ -20,10 +20,8 @@ public class FixedThreadPool {
         executor.setKeepAliveTime(10, TimeUnit.SECONDS);
         // 执行指定线程的操作，需提供实现Runnable接口或Callable接口实现类的对象
         executor.execute(() -> System.out.println(Thread.currentThread().getName() + "\t 运行了..."));    // 适用于Runnable
-        executor.execute(() -> System.out.println(Thread.currentThread().getName() + "\t 运行了..."));    // 适用于Runnable
-        executor.execute(() -> System.out.println(Thread.currentThread().getName() + "\t 运行了..."));    // 适用于Runnable
         // 适用于Callable
-        Future<Integer> submit = executor.submit(() -> 1);
+        Future<Integer> submit = executor.submit(() -> 1);  //异步
         System.out.println(submit.get());
         // 关闭连接池
         executor.shutdown();

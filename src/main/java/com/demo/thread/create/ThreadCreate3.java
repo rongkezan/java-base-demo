@@ -17,28 +17,10 @@ import java.util.concurrent.FutureTask;
  * - FutureTask同时实现了Runnable,Future等接口，它既可作为Runnable线程执行，又可作为Future的到Callable的返回值
  */
 public class ThreadCreate3 {
-    static class MyThread implements Callable<Integer>{
-        @Override
-        public Integer call() throws Exception {
-            System.out.println(Thread.currentThread().getName() + "\t 运行了...");
-            Integer sum = 0;
-            for (int i = 0; i < 100; i++) {
-                if(i % 2 == 0){
-                    sum += i;
-                }
-            }
-            return sum;
-        }
-    }
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        MyThread t = new MyThread();
-        FutureTask<Integer> futureTask = new FutureTask<>(t);
+        FutureTask<Integer> futureTask = new FutureTask<>(() -> 1);
         new Thread(futureTask).start();
-        Integer sum = futureTask.get();
-        System.out.println("总和为:" + sum);
-        new Thread(() -> {
-
-        }).start();
+        Integer result = futureTask.get();
+        System.out.println("结果:" + result);
     }
 }
