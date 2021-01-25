@@ -8,22 +8,31 @@ package com.demo.juc.waitNotify;
  * @author keith
  */
 public class WaitNotifyDemo {
-    static Object objectLock = new Object();
+    static Object objectsMonitor = new Object();
 
     public static void main(String[] args) {
         new Thread(() ->{
-            synchronized (objectLock){
+            synchronized (objectsMonitor){
                 System.out.println(Thread.currentThread().getName() + "\t" + "come in");
-                try { objectLock.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
+                try { objectsMonitor.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
                 System.out.println(Thread.currentThread().getName() + "\t" + "wake up");
+                objectsMonitor.notifyAll();
             }
         }, "A").start();
 
         new Thread(() -> {
-            synchronized (objectLock){
-                objectLock.notify();
-                System.out.println(Thread.currentThread().getName() + "\t" + "notify");
+            synchronized (objectsMonitor){
+                objectsMonitor.notify();
+                System.out.println(Thread.currentThread().getName() + "\t" + "notify and wait");
+                try {
+                    objectsMonitor.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + "\t" + "wake up");
             }
         }, "B").start();
+
+
     }
 }
