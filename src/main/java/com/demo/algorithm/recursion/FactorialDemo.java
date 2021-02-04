@@ -1,4 +1,4 @@
-package com.demo.dataStructure.recursion;
+package com.demo.algorithm.recursion;
 
 /**
  * 通过递归处理阶乘问题

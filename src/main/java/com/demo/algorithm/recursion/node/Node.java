@@ -1,4 +1,4 @@
-package com.demo.dataStructure.recursion.node;
+package com.demo.algorithm.recursion.node;
 
 import lombok.Data;
 

@@ -1,6 +1,4 @@
-package com.demo.dataStructure;
-
-import org.w3c.dom.Node;
+package com.demo.algorithm;
 
 /**
  * 单向环形链表(约瑟夫问题)

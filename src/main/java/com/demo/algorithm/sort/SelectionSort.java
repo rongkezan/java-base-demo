@@ -1,4 +1,4 @@
-package com.demo.dataStructure.sort;
+package com.demo.algorithm.sort;
 
 /**
  * 选择排序

@@ -1,4 +1,4 @@
-package com.demo.dataStructure.recursion;
+package com.demo.algorithm.recursion;
 
 /**
  * 使用递归解决迷宫问题: 求最短路径

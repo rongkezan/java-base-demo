@@ -1,4 +1,4 @@
-package com.demo.dataStructure.stack;
+package com.demo.algorithm.stack;
 
 /**
  * 使用栈实现计算器

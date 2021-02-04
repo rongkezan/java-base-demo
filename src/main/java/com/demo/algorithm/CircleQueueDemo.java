@@ -1,4 +1,4 @@
-package com.demo.dataStructure;
+package com.demo.algorithm;
 
 /**
  * 使用数组实现环形队列

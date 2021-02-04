@@ -1,4 +1,4 @@
-package com.demo.dataStructure.circleQueue;
+package com.demo.algorithm.circleQueue;
 
 public interface Queue {
     /**
