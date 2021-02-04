@@ -1,13 +1,12 @@
-package com.demo;
-
-import com.demo.collection.entity.CollectionUser;
-import com.demo.design.pattern.builder.User;
+package com.demo.dataStructure.str;
 
 /**
+ * 暴力匹配
+ *
  * @author keith
  */
-public class Test {
-    public static void main(String[] args) throws Exception {
+public class Violence {
+    public static void main(String[] args) {
         String s = "Hello World";
         String t = "Wo";
         System.out.println(indexOf(s, t));
