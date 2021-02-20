@@ -6,10 +6,12 @@ import com.demo.design.pattern.responsibilityChain.demo1.filter.ThreeFilter;
 import com.demo.design.pattern.responsibilityChain.demo1.filter.TwoFilter;
 
 /**
+ * 使用责任链模式实现过滤器
+ *
  * 一串1-9的数字依次进行过滤
  * 使用两个链条进行串联
  */
-public class Main {
+public class Client {
     public static void main(String[] args) {
         Msg msg = new Msg();
         msg.setContent("123456789");

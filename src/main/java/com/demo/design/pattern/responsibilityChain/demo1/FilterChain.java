@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FilterChain implements Filter {
 
-    private List<Filter> filters = new ArrayList<>();
+    private final List<Filter> filters = new ArrayList<>();
 
     public FilterChain add(Filter filter){
         filters.add(filter);
@@ -14,7 +14,8 @@ public class FilterChain implements Filter {
 
     public boolean doFilter(Msg msg){
         for (Filter filter : filters) {
-            if (!filter.doFilter(msg)) return false;
+            if (!filter.doFilter(msg))
+                return false;
         }
         return true;
     }

@@ -7,6 +7,6 @@ public class ThreeFilter implements Filter {
     @Override
     public boolean doFilter(Msg msg) {
         msg.setContent(msg.getContent().replace("3", "*"));
-        return true;
+        return false;
     }
 }
