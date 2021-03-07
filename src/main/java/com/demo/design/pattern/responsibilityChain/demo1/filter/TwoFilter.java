@@ -7,6 +7,6 @@ public class TwoFilter implements Filter {
     @Override
     public boolean doFilter(Msg msg) {
         msg.setContent(msg.getContent().replace("2", "*"));
-        return false;
+        return true;
     }
 }

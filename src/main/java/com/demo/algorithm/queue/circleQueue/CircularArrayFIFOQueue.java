@@ -1,4 +1,4 @@
-package com.demo.dataStructure.circleQueue;
+package com.demo.algorithm.queue.circleQueue;
 
 /**
  * @author keith

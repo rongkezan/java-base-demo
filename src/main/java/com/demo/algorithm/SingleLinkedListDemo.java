@@ -1,4 +1,4 @@
-package com.demo.dataStructure;
+package com.demo.algorithm;
 
 /**
  * 单链表

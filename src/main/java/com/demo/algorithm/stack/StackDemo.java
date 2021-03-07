@@ -1,4 +1,4 @@
-package com.demo.dataStructure.stack;
+package com.demo.algorithm.stack;
 
 /**
  * 使用数组来模拟栈
