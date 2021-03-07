@@ -68,7 +68,7 @@ public class TestStreamEnd {
         Optional<Employee> max = emps.stream().max(Comparator.comparingDouble(Employee::getSalary));
         System.out.println(max.get());
 
-        // 返回流中最小值 mi
+        // 返回流中最小值 min
         Optional<Double> min = emps.stream().map(Employee::getSalary).min(Double::compare);
         System.out.println(min.get());
     }
@@ -81,7 +81,7 @@ public class TestStreamEnd {
     @Test
     public void test2(){
         List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9);
-        Integer sum = list.stream().reduce(0, (x, y) -> x + y);
+        Integer sum = list.stream().reduce(0, Integer::sum);
         System.out.println(sum);
         System.out.println("---------------------");
         Optional<Double> op = emps.stream().map(Employee::getSalary).reduce(Double::sum);
@@ -129,7 +129,7 @@ public class TestStreamEnd {
         System.out.println(map);
     }
 
-    // DoubleSummaryStatistics
+    // 统计
     @Test
     public void test7(){
         DoubleSummaryStatistics summary = emps.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
@@ -138,7 +138,7 @@ public class TestStreamEnd {
         System.out.println(summary.getMax());
     }
 
-    //拼接
+    // 拼接
     @Test
     public void test8(){
         String str = emps.stream().map(Employee::getName).collect(Collectors.joining(","));

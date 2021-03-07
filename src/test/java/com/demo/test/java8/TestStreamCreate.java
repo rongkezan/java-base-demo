@@ -30,15 +30,9 @@ public class TestStreamCreate {
         Stream<String> stream3 = Stream.of("a", "b", "c");
 
         // 4. 创建无限流
-        // 迭代
-        Stream<Integer> stream4 = Stream.iterate(0, x -> x + 2);
-        stream4.forEach(System.out::println);
-        // 生成
-        Stream.generate(() -> Math.random())
-                .forEach(System.out::println);
-        //使用limit截断
-        Stream.generate(() -> Math.random())
-                .limit(5)
-                .forEach(System.out::println);
+        // 遍历前10个偶数
+        Stream.iterate(0, x -> x + 2).limit(10).forEach(System.out::println);
+        // 获取前10个随机数
+        Stream.generate(Math::random).limit(10).forEach(System.out::println);
     }
 }
